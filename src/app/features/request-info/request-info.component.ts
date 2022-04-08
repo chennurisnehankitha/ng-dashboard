@@ -10,7 +10,90 @@ export class RequestInfoComponent {
   lastSelectedCountry: any;
   countries: any[] = [];
   countrySuggestions: any[] = [];
+  date1: any= null;
+  minDate:any= null;
+  maxDate: any = null;
+  selectedCity1: any;
+  countries1: any[]=[];
+
   ngOnInit() {
+    this.countries1 = [
+      {
+        name: 'India',
+        code: 'IN',
+        states: [
+          {
+            name: 'Telangana',
+            cities: [
+              {cname: 'Hyderabad', Code: 'HYD'},
+              {cname: 'Nizambad', code: 'nzb'},
+              {cname: 'Medak', code: 'MED'}
+            ]
+          },
+          {
+            name: ' Andhra Pradesh',
+            cities: [
+              {cname: 'Vizag', code: 'VIZ'},
+              {cname: 'Vijayawada', code: 'VJY'}
+            ]
+          },
+          {
+            name: 'Karnataka',
+            Cities:[
+              {cname: 'Bangalore', code: ' BANG'},
+              {cname: 'Mangalore', code: 'MNG'},
+              {cname:'Mysore Palace', code:'MYS'}
+            ]
+          },
+        ]
+      },
+      {
+        name: 'Unites states',
+        code: 'USA',
+        states:[
+          {
+            name: 'Tennesse',
+            cities:[
+              {cname: 'Nashville', code: 'NSH'},
+              {cname: 'Memphis', code:'MEM'}
+            ]
+          },
+          {
+            name: 'Texas',
+            cities: [
+              {cname: 'Austin', code:'AUS'},
+              {cname: 'Houston', code:'HOu'},
+              {cname: 'Dallas', code:'Da'},
+  
+            ]
+          },
+        ]
+      },
+      {
+        name: 'Canada', 
+        code: 'CA',
+        states: [
+            {
+                name: 'Quebec',
+                cities: [
+                    {cname: 'Montreal', code: 'C-MO'},
+                    {cname: 'Quebec City', code: 'C-QU'}
+                ]
+            },
+            {
+                name: 'Ontario',
+                cities: [
+                    {cname: 'Ottawa', code: 'C-OT'},
+                    {cname: 'Toronto', code: 'C-TO'}
+                ]
+            },
+            
+        ]
+    },
+  
+    ] 
+
+
     this.countries = [
       { label: 'Germany', value: 'ge' },
       { label: 'India', value: 'IN' },
@@ -18,6 +101,22 @@ export class RequestInfoComponent {
       { label: 'Srilanka', value: 'SL' },
       { label: 'China', value: 'CN' },
     ];
+
+    let today = new Date();
+        let month = today.getMonth();
+        let year = today.getFullYear();
+        let prevMonth = (month === 0) ? 11 : month -1;
+        let prevYear = (prevMonth === 11) ? year - 1 : year;
+        let nextMonth = (month === 11) ? 0 : month + 1;
+        let nextYear = (nextMonth === 0) ? year + 1 : year;
+        this.minDate = new Date();
+        this.minDate.setMonth(prevMonth);
+        this.minDate.setFullYear(prevYear);
+        this.maxDate = new Date();
+        this.maxDate.setMonth(nextMonth);
+        this.maxDate.setFullYear(nextYear);
+
+        
   }
 
   processOnChangeEvent(value: any){
@@ -44,5 +143,6 @@ export class RequestInfoComponent {
 
   }
 
+  
 
 }

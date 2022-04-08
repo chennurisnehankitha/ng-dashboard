@@ -15,6 +15,8 @@ import { AutoCompleteModule } from 'primeng/autocomplete';
 import { FormsModule } from '@angular/forms';
 import {DropdownModule} from 'primeng/dropdown';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {CalendarModule} from 'primeng/calendar';
+import {CascadeSelectModule} from 'primeng/cascadeselect';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     AppRoutingModule, 
     FormsModule, 
     AutoCompleteModule,
-    DropdownModule
+    DropdownModule,
+    CalendarModule,
+    CascadeSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent],
