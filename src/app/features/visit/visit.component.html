@@ -1,1 +1,35 @@
-<div>Visit</div>
+<div class="table">
+    <p-table [value]="cars" [paginator]="true" [rows]="10">
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="vin">Vin <p-sortIcon field="vin"></p-sortIcon></th>
+                <th pSortableColumn="year">Year <p-sortIcon field="year"></p-sortIcon></th>
+                <th pSortableColumn="brand">Brand <p-sortIcon field="brand"></p-sortIcon></th>
+                <th pSortableColumn="color">Color <p-sortIcon field="color"></p-sortIcon></th>
+            </tr>
+            <tr>
+                <th>
+                    <p-columnFilter type="text" field="vin"></p-columnFilter>
+                </th>
+                <th>
+                    <p-columnFilter type="text" field="year"></p-columnFilter>
+                </th>
+                <th>
+                    <p-columnFilter type="text" field="brand"></p-columnFilter>
+                </th>
+                <th>
+                    <p-columnFilter type="text" field="color"></p-columnFilter>
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-car>
+            <tr>
+                <td>{{car.vin}}</td>
+                <td>{{car.year}}</td>
+                <td>{{car.brand}}</td>
+                <td>{{car.color}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+
+</div>

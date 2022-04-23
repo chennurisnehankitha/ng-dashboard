@@ -17,6 +17,11 @@ import {DropdownModule} from 'primeng/dropdown';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CalendarModule} from 'primeng/calendar';
 import {CascadeSelectModule} from 'primeng/cascadeselect';
+import {TableModule} from 'primeng/table';
+import { CarService } from './car.service';
+import { HttpClientModule } from '@angular/common/http';
+import {AccordionModule} from 'primeng/accordion';
+import {ToggleButtonModule} from 'primeng/togglebutton';
 
 @NgModule({
   declarations: [
@@ -38,9 +43,13 @@ import {CascadeSelectModule} from 'primeng/cascadeselect';
     AutoCompleteModule,
     DropdownModule,
     CalendarModule,
-    CascadeSelectModule
+    CascadeSelectModule,
+    TableModule,
+    HttpClientModule,
+    AccordionModule,
+    ToggleButtonModule
   ],
-  providers: [],
+  providers: [CarService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
