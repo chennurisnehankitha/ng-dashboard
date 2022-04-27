@@ -24,6 +24,7 @@ import {AccordionModule} from 'primeng/accordion';
 import {ToggleButtonModule} from 'primeng/togglebutton';
 import {InputSwitchModule} from 'primeng/inputswitch';
 import { InputTextModule } from 'primeng/inputtext';
+import { AppUtil } from './app.util';
 
 
 @NgModule({
@@ -54,7 +55,7 @@ import { InputTextModule } from 'primeng/inputtext';
     InputSwitchModule,
     InputTextModule
   ],
-  providers: [CarService],
+  providers: [CarService, AppUtil],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

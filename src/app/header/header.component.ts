@@ -1,28 +1,36 @@
-import { Component, EventEmitter, OnInit, Output } from "@angular/core";
-import { Router } from "@angular/router";
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
+import { AppUtil } from '../app.util';
 
 @Component({
-  selector: "app-header",
-  templateUrl: "./header.component.html",
-  styleUrls: ["./header.component.less"]
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.less'],
 })
-
 export class HeaderComponent implements OnInit {
   @Output() homeClicked = new EventEmitter<string>();
   flag = false;
-  constructor(private router: Router) { 
-
-  }
+  item = 'sneha';
+  constructor(private router: Router, private appUtil: AppUtil) {}
 
   ngOnInit() {
-
+    console.log('this item', this.item);
+    // this.item = this.appUtil.getSelectedSideNavItem();
+    this.appUtil.getIntelligentItem$().subscribe((x) => {
+      this.item = x;
+      console.log('Am I being called many items? ', x);
+    });
+    console.log('this item', this.item);
   }
-  onClick(){
+
+  onClick() {
     // const now = new Date().getMilliseconds();
     // this.homeClicked.emit('home'+now);
     // this.flag = !this.flag;
     // this.homeClicked.emit(this.flag ? 'home': 'againHome');
-    this.homeClicked.emit('home'+Math.random());
+    // this.item = this.appUtil.getSelectedSideNavItem();
+
+    this.homeClicked.emit('home' + Math.random());
     this.router.navigateByUrl('home');
   }
 }

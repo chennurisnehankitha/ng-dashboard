@@ -6,6 +6,7 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { Router } from '@angular/router';
+import { AppUtil } from '../app.util';
 
 @Component({
   selector: 'app-side-nav',
@@ -14,11 +15,11 @@ import { Router } from '@angular/router';
 })
 export class SideNavComponent implements OnInit, OnChanges {
   @Input() selectedItem = '';
-  flag = false;
   
-  constructor(private router: Router) {}
+  constructor(private router: Router, private appUtil: AppUtil) {}
 
   ngOnInit() {
+   
     if (location.pathname.includes('info')) {
       this.selectedItem='info';
     } else if (location.pathname.includes('visit')) {
@@ -41,5 +42,7 @@ export class SideNavComponent implements OnInit, OnChanges {
     console.log('clicked item is: ', item);
     this.selectedItem = item;
     this.router.navigateByUrl(this.selectedItem);
+    // AppUtil appUtil = new AppUtil();
+    this.appUtil.setSelectedSideNavItem(item);
   }
 }

@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { AppUtil } from 'src/app/app.util';
 
 @Component({
   selector: 'request-info',
   templateUrl: 'request-info.component.html',
   styleUrls: ['request-info.component.scss'],
 })
-export class RequestInfoComponent {
+export class RequestInfoComponent implements OnInit, OnDestroy {
   selectedCountryAdvanced: any;
   lastSelectedCountry: any;
   countries: any[] = [];
@@ -15,8 +16,14 @@ export class RequestInfoComponent {
   maxDate: any = null;
   selectedCity1: any;
   countries1: any[]=[];
+  subs: any;
+  constructor(private appUtil: AppUtil) {}
 
   ngOnInit() {
+
+    this.subs = this.appUtil.getIntelligentItem$().subscribe((x) => {
+        console.log(x, ' :Info: ', Math.random());
+      });
     this.countries1 = [
       {
         name: 'India',
@@ -142,6 +149,10 @@ export class RequestInfoComponent {
     
 
   }
+
+  ngOnDestroy(): void {
+    this.subs.unsubscribe();
+}
 
   
 
