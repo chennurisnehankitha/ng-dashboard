@@ -14,11 +14,23 @@ import { Router } from '@angular/router';
 })
 export class SideNavComponent implements OnInit, OnChanges {
   @Input() selectedItem = '';
+  flag = false;
   
   constructor(private router: Router) {}
 
   ngOnInit() {
-    console.log('init selected Item: ', this.selectedItem);
+    if (location.pathname.includes('info')) {
+      this.selectedItem='info';
+    } else if (location.pathname.includes('visit')) {
+      this.selectedItem='visit';
+    } else if (location.pathname.includes('apply')) {
+      this.selectedItem='apply';
+    } else if (location.pathname.includes('give')) {
+      this.selectedItem='give';
+    } else {
+      this.selectedItem='';
+    }
+    
   }
 
   ngOnChanges(changes: SimpleChanges): void {

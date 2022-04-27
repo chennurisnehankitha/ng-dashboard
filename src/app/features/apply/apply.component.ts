@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
     selector: 'apply',
@@ -6,7 +6,16 @@ import { Component } from '@angular/core';
     styleUrls: ['apply.component.scss']
 })
 export class ApplyComponent {
-    toggleFlag = false;
+    @Input() toggleFlag = false;
+
+    @Output() outputFlag = new EventEmitter<boolean>(false);
+    checked: boolean = false;
+
+    handleChange(event: any){
+        this.outputFlag.emit(this.toggleFlag);
+    }
+
+
     // toggleLabel = Toggle_Label.Expand_All;
     // onToggle(){
         // this.toggleFlag= !this.toggleFlag;

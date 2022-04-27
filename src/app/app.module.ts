@@ -22,6 +22,9 @@ import { CarService } from './car.service';
 import { HttpClientModule } from '@angular/common/http';
 import {AccordionModule} from 'primeng/accordion';
 import {ToggleButtonModule} from 'primeng/togglebutton';
+import {InputSwitchModule} from 'primeng/inputswitch';
+import { InputTextModule } from 'primeng/inputtext';
+
 
 @NgModule({
   declarations: [
@@ -47,7 +50,9 @@ import {ToggleButtonModule} from 'primeng/togglebutton';
     TableModule,
     HttpClientModule,
     AccordionModule,
-    ToggleButtonModule
+    ToggleButtonModule,
+    InputSwitchModule,
+    InputTextModule
   ],
   providers: [CarService],
   bootstrap: [AppComponent],
