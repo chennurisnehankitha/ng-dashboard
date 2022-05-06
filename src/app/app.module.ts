@@ -25,6 +25,7 @@ import {ToggleButtonModule} from 'primeng/togglebutton';
 import {InputSwitchModule} from 'primeng/inputswitch';
 import { InputTextModule } from 'primeng/inputtext';
 import { AppUtil } from './app.util';
+import {PasswordModule} from 'primeng/password';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { AppUtil } from './app.util';
     AccordionModule,
     ToggleButtonModule,
     InputSwitchModule,
-    InputTextModule
+    InputTextModule,
+    PasswordModule
   ],
   providers: [CarService, AppUtil],
   bootstrap: [AppComponent],

@@ -17,6 +17,7 @@ export class RequestInfoComponent implements OnInit, OnDestroy {
   selectedCity1: any;
   countries1: any[]=[];
   subs: any;
+  password1: string = '';
   constructor(private appUtil: AppUtil) {}
 
   ngOnInit() {
