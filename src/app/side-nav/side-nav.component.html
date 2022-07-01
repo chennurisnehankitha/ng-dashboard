@@ -1,8 +1,8 @@
 <div class="side-nav-container">
   <ul class="items">
-    <li class="item py-2 pl-2 cursor-pointer" [ngClass]="selectedItem=='info' ? 'active-item' : ''" (click)="onClick('info')">Request Information</li>
-    <li class="item py-2 pl-2 cursor-pointer" [ngClass]="selectedItem=='visit' ? 'active-item' : ''" (click)="onClick('visit')">Visit</li>
-    <li class="item py-2 pl-2 cursor-pointer" [ngClass]="selectedItem=='apply' ? 'active-item' : ''" (click)="onClick('apply')">Apply</li>
-    <li class="item py-2 pl-2 cursor-pointer" [ngClass]="selectedItem=='give' ? 'active-item' : ''" (click)="onClick('give')">Give</li>
+    <li [pHighlighter]="{apply: selectedItem=='info'}"  class="item py-2 pl-2 cursor-pointer" [ngClass]="selectedItem=='info' ? 'active-item' : ''" (click)="onClick('info')">Request Information</li>
+    <li [pHighlighter]="{apply: selectedItem=='visit'}"  class="item py-2 pl-2 cursor-pointer" [ngClass]="selectedItem=='visit' ? 'active-item' : ''" (click)="onClick('visit')">Visit</li>
+    <li [pHighlighter]="{apply: selectedItem=='apply'}"  class="item py-2 pl-2 cursor-pointer" [ngClass]="selectedItem=='apply' ? 'active-item' : ''" (click)="onClick('apply')">Apply</li>
+    <li [pHighlighter]="{apply: selectedItem=='give'}"  class="item py-2 pl-2 cursor-pointer" [ngClass]="selectedItem=='give' ? 'active-item' : ''" (click)="onClick('give')">Give</li>
   </ul>
 </div>

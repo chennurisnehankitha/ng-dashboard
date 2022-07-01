@@ -2,6 +2,7 @@ import {
   Component,
   Input,
   OnChanges,
+  OnDestroy,
   OnInit,
   SimpleChanges,
 } from '@angular/core';
@@ -13,12 +14,14 @@ import { AppUtil } from '../app.util';
   templateUrl: './side-nav.component.html',
   styleUrls: ['./side-nav.component.less'],
 })
-export class SideNavComponent implements OnInit, OnChanges {
+export class SideNavComponent implements OnInit, OnChanges, OnDestroy {
   @Input() selectedItem = '';
   
   constructor(private router: Router, private appUtil: AppUtil) {}
 
   ngOnInit() {
+    console.log("on Init");
+    
    
     if (location.pathname.includes('info')) {
       this.selectedItem='info';
@@ -45,4 +48,11 @@ export class SideNavComponent implements OnInit, OnChanges {
     // AppUtil appUtil = new AppUtil();
     this.appUtil.setSelectedSideNavItem(item);
   }
+
+  ngOnDestroy(): void {
+    console.log("on Destroy");
+    
+  }
+
+
 }

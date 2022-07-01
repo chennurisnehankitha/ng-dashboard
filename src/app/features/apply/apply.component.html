@@ -12,8 +12,8 @@
   </div>
 
   <!-- <button (click)="onToggle()">{{toggleLabel}}</button> -->
-  <p-accordion [multiple]="true">
-    <p-accordionTab header="Header I" [selected]="toggleFlag">
+  <p-accordion [multiple]="true" (onOpen)="firstTabExpanded($event)" >
+    <p-accordionTab header="Header I" [selected]="toggleFlagFirst">
       <p>this is data for header 1</p>
     </p-accordionTab>
     <p-accordionTab header="Header II" [selected]="toggleFlag">

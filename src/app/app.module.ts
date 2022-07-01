@@ -26,6 +26,8 @@ import {InputSwitchModule} from 'primeng/inputswitch';
 import { InputTextModule } from 'primeng/inputtext';
 import { AppUtil } from './app.util';
 import {PasswordModule} from 'primeng/password';
+import {KeyFilterModule} from 'primeng/keyfilter';
+import { SelectedItemDirective } from './directives/selected-item.directive';
 
 
 @NgModule({
@@ -39,6 +41,7 @@ import {PasswordModule} from 'primeng/password';
     RequestInfoComponent,
     ApplyComponent,
     HomeComponent,
+    SelectedItemDirective,
   ],
   imports: [
     BrowserModule,
@@ -55,7 +58,8 @@ import {PasswordModule} from 'primeng/password';
     ToggleButtonModule,
     InputSwitchModule,
     InputTextModule,
-    PasswordModule
+    PasswordModule,
+    KeyFilterModule
   ],
   providers: [CarService, AppUtil],
   bootstrap: [AppComponent],

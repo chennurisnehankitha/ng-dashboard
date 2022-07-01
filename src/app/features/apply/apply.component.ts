@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { AppUtil } from 'src/app/app.util';
 
 @Component({
@@ -7,13 +8,13 @@ import { AppUtil } from 'src/app/app.util';
     styleUrls: ['apply.component.scss']
 })
 export class ApplyComponent implements OnInit, OnDestroy {
-    @Input() toggleFlag = false;
-
+    @Input() toggleFlag = true;
+    toggleFlagFirst = false;
     @Output() outputFlag = new EventEmitter<boolean>(false);
     checked: boolean = false;
     subs: any;
 
-    constructor(private appUtil: AppUtil) {}
+    constructor(private appUtil: AppUtil, private router: Router) {}
 
     ngOnInit(): void {
         this.subs = this.appUtil.getIntelligentItem$().subscribe((x) => {
@@ -25,6 +26,12 @@ export class ApplyComponent implements OnInit, OnDestroy {
         this.outputFlag.emit(this.toggleFlag);
     }
 
+    firstTabExpanded(event: any) {
+        console.log('first tab is expanded', event);
+        if(event.index === 0) {
+            this.router.navigateByUrl('info');
+        }
+    }
 
 
 
@@ -40,6 +47,8 @@ export class ApplyComponent implements OnInit, OnDestroy {
     // }
 
     ngOnDestroy(): void {
+        console.log('apply destroyed');
+        
         this.subs.unsubscribe();
     }
 
